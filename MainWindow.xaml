@@ -107,12 +107,15 @@
                                Foreground="{DynamicResource AccentBrush}"
                                Margin="12,10,12,6"/>
 
-                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ScrollViewer x:Name="NavScrollViewer" Grid.Row="1" VerticalScrollBarVisibility="Auto">
                         <TreeView x:Name="NavTree"
                                   Background="Transparent"
                                   BorderThickness="0"
+                                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                   ItemsSource="{Binding NavItems}"
-                                  SelectedItemChanged="NavTree_SelectedItemChanged">
+                                  SelectedItemChanged="NavTree_SelectedItemChanged"
+                                  PreviewMouseWheel="NavTree_PreviewMouseWheel">
                             <TreeView.ItemTemplate>
                                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                                     <!-- Chapter header — visually a non-clickable group label -->
