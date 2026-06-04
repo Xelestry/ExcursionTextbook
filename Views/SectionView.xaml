@@ -1,0 +1,59 @@
+<UserControl x:Class="ExcursionTextbook.Views.SectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ExcursionTextbook.ViewModels">
+
+    <Grid>
+        <TextBlock Text="Выберите раздел в навигационной панели слева"
+                   FontSize="16" Foreground="{DynamicResource NavForeground}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Opacity="0.5"
+                   x:Name="EmptyStateText"/>
+
+        <ScrollViewer x:Name="ContentScroll"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      Padding="0,0,8,0"
+                      Visibility="Collapsed">
+            <StackPanel Margin="32,24,32,32" MaxWidth="800">
+                <TextBlock x:Name="SectionTitle"
+                           FontSize="24" FontWeight="Bold"
+                           Foreground="{DynamicResource ChapterHeaderForeground}"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,8"/>
+
+                <TextBlock x:Name="ChapterSubtitle"
+                           FontSize="13" Foreground="{DynamicResource NavForeground}"
+                           Opacity="0.7" Margin="0,0,0,20"/>
+
+                <Rectangle Height="1" Fill="{DynamicResource BorderBrush}" Margin="0,0,0,20"/>
+
+                <TextBlock x:Name="ContentText"
+                           FontSize="14" LineHeight="22"
+                           Foreground="{DynamicResource AppForeground}"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,20"/>
+
+                <Image x:Name="SectionImage"
+                       MaxWidth="600" MaxHeight="400"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"
+                       Stretch="Uniform"
+                       Visibility="Collapsed"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,16,0,0">
+                    <Button x:Name="MarkReadButton"
+                            Content="✓ Отметить как прочитанное"
+                            Style="{StaticResource PrimaryButton}"
+                            Margin="0,0,10,0"
+                            Click="MarkReadButton_Click"/>
+                    <Button x:Name="BookmarkButton"
+                            Content="☆ Добавить закладку"
+                            Style="{StaticResource SecondaryButton}"
+                            Margin="0,0,10,0"
+                            Click="BookmarkButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

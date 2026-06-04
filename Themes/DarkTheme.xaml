@@ -1,0 +1,29 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="AppBackground" Color="#121212"/>
+    <SolidColorBrush x:Key="PanelBackground" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="NavBackground" Color="#252526"/>
+    <SolidColorBrush x:Key="TopBarBackground" Color="#0D0D0D"/>
+    <SolidColorBrush x:Key="StatusBarBackground" Color="#1A1A2E"/>
+    <SolidColorBrush x:Key="AppForeground" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="NavForeground" Color="#BDBDBD"/>
+    <SolidColorBrush x:Key="TopBarForeground" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="StatusBarForeground" Color="#90CAF9"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#42A5F5"/>
+    <SolidColorBrush x:Key="NavHoverBrush" Color="#2D3A55"/>
+    <SolidColorBrush x:Key="SelectionBrush" Color="#1E3A5F"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#424242"/>
+    <SolidColorBrush x:Key="ButtonBackground" Color="#1565C0"/>
+    <SolidColorBrush x:Key="ButtonForeground" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="SecondaryButtonBackground" Color="#1E3A5F"/>
+    <SolidColorBrush x:Key="SecondaryButtonForeground" Color="#90CAF9"/>
+    <SolidColorBrush x:Key="ReadMarkColor" Color="#66BB6A"/>
+    <SolidColorBrush x:Key="InputBackground" Color="#2D2D2D"/>
+    <SolidColorBrush x:Key="InputForeground" Color="#E0E0E0"/>
+    <SolidColorBrush x:Key="ChapterHeaderForeground" Color="#42A5F5"/>
+    <SolidColorBrush x:Key="SearchBarBackground" Color="#2A3550"/>
+    <SolidColorBrush x:Key="SearchBarFocusBorder" Color="#4A90D9"/>
+    <SolidColorBrush x:Key="SearchBarIdleBorder" Color="#424242"/>
+
+</ResourceDictionary>
