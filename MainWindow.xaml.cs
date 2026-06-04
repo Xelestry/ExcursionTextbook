@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using ExcursionTextbook.ViewModels;
 
@@ -14,6 +15,16 @@ public partial class MainWindow : Window
         InitializeComponent();
         _vm = new MainViewModel();
         DataContext = _vm;
+    }
+
+    private void NavTree_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+    {
+        if (e.Handled) return;
+        e.Handled = true;
+        NavScrollViewer.RaiseEvent(new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta)
+        {
+            RoutedEvent = UIElement.MouseWheelEvent
+        });
     }
 
     private void NavTree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
