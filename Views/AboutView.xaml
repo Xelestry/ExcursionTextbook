@@ -1,0 +1,41 @@
+<UserControl x:Class="ExcursionTextbook.Views.AboutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="32,24,32,32" MaxWidth="800">
+                <TextBlock Text="Авторство и копирайт" FontSize="24" FontWeight="Bold"
+                           Foreground="{DynamicResource ChapterHeaderForeground}"
+                           Margin="0,0,0,8"/>
+                <Rectangle Height="1" Fill="{DynamicResource BorderBrush}" Margin="0,0,0,20"/>
+
+                <Border Padding="20,18" Margin="0,0,0,16"
+                        Background="{DynamicResource NavBackground}"
+                        CornerRadius="6"
+                        BorderBrush="{DynamicResource BorderBrush}"
+                        BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="Автор" FontSize="13" FontWeight="Bold"
+                                   Foreground="{DynamicResource AccentBrush}"
+                                   Margin="0,0,0,4"/>
+                        <TextBlock Text="Лалыкин Александр" FontSize="18" FontWeight="Bold"
+                                   Foreground="{DynamicResource ChapterHeaderForeground}"
+                                   Margin="0,0,0,16"/>
+
+                        <TextBlock Text="Тема дипломной работы" FontSize="13" FontWeight="Bold"
+                                   Foreground="{DynamicResource AccentBrush}"
+                                   Margin="0,0,0,4"/>
+                        <TextBlock TextWrapping="Wrap" FontSize="15"
+                                   Foreground="{DynamicResource AppForeground}"
+                                   Text="Электронный учебник по дисциплине «Организация экскурсионной деятельности»"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock TextWrapping="Wrap" FontSize="12"
+                           Foreground="{DynamicResource NavForeground}" Opacity="0.7"
+                           Text="© Лалыкин Александр. Все права защищены."/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
