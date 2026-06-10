@@ -1,4 +1,5 @@
 using System.IO;
+using System.Reflection;
 using ExcursionTextbook.Models;
 using Newtonsoft.Json;
 
@@ -18,15 +19,31 @@ public class ContentService
     {
         if (_chapters != null) return _chapters;
 
-        if (!File.Exists(_contentPath))
-            throw new FileNotFoundException("content.json не найден", _contentPath);
-
-        var json = File.ReadAllText(_contentPath);
+        var json = LoadContentJson();
         var root = JsonConvert.DeserializeObject<ContentRoot>(json)
             ?? throw new InvalidDataException("Не удалось десериализовать content.json");
 
         _chapters = root.Chapters;
         return _chapters;
+    }
+
+    // Prefer an external Data\content.json (lets the content be edited without rebuilding);
+    // otherwise fall back to the copy embedded in the executable.
+    private string LoadContentJson()
+    {
+        if (File.Exists(_contentPath))
+            return File.ReadAllText(_contentPath);
+
+        var assembly = Assembly.GetExecutingAssembly();
+        var resourceName = assembly.GetManifestResourceNames()
+            .FirstOrDefault(n => n.EndsWith("content.json", StringComparison.OrdinalIgnoreCase));
+
+        if (resourceName == null)
+            throw new FileNotFoundException("content.json не найден ни на диске, ни в ресурсах", _contentPath);
+
+        using var stream = assembly.GetManifestResourceStream(resourceName)!;
+        using var reader = new StreamReader(stream);
+        return reader.ReadToEnd();
     }
 
     public Section? FindSection(int chapterId, int sectionId)
