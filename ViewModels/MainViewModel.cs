@@ -3,7 +3,7 @@ using ExcursionTextbook.Services;
 
 namespace ExcursionTextbook.ViewModels;
 
-public enum PanelMode { Section, Quiz, Glossary, Bookmarks, Search }
+public enum PanelMode { Section, Quiz, Glossary, Bookmarks, Search, Video, About }
 
 public class NavItem : BaseViewModel
 {
@@ -51,6 +51,8 @@ public class MainViewModel : BaseViewModel
         StartQuizCommand = new RelayCommand(StartQuiz, () => _currentChapter?.Quiz?.Count > 0);
         ShowGlossaryCommand = new RelayCommand(_ => PanelMode = PanelMode.Glossary);
         ShowBookmarksCommand = new RelayCommand(_ => PanelMode = PanelMode.Bookmarks);
+        ShowVideoCommand = new RelayCommand(_ => PanelMode = PanelMode.Video);
+        ShowAboutCommand = new RelayCommand(_ => PanelMode = PanelMode.About);
         ToggleThemeCommand = new RelayCommand(ToggleTheme);
         NavigateSearchResultCommand = new RelayCommand(NavigateSearchResult);
         NavigateBookmarkCommand = new RelayCommand(NavigateBookmark);
@@ -123,6 +125,11 @@ public class MainViewModel : BaseViewModel
     public RelayCommand StartQuizCommand { get; }
     public RelayCommand ShowGlossaryCommand { get; }
     public RelayCommand ShowBookmarksCommand { get; }
+    public RelayCommand ShowVideoCommand { get; }
+    public RelayCommand ShowAboutCommand { get; }
+
+    public string VideoTitle => "Видеоматериалы";
+    public string VideoEmbedUrl => "https://www.youtube.com/embed/82x5c6JyD4U";
     public RelayCommand ToggleThemeCommand { get; }
     public RelayCommand NavigateSearchResultCommand { get; }
     public RelayCommand NavigateBookmarkCommand { get; }

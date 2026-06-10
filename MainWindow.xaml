@@ -29,6 +29,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Text="📚 Экскурсоведение"
@@ -70,15 +72,23 @@
                     </Grid>
                 </Border>
 
-                <Button Grid.Column="2" Content="📖 Глоссарий"
+                <Button Grid.Column="2" Content="🎬 Видео"
+                        Style="{StaticResource TopBarButton}" Margin="8,0,0,0"
+                        Command="{Binding ShowVideoCommand}"/>
+
+                <Button Grid.Column="3" Content="© Авторство"
+                        Style="{StaticResource TopBarButton}" Margin="8,0,0,0"
+                        Command="{Binding ShowAboutCommand}"/>
+
+                <Button Grid.Column="4" Content="📖 Глоссарий"
                         Style="{StaticResource TopBarButton}" Margin="8,0,0,0"
                         Command="{Binding ShowGlossaryCommand}"/>
 
-                <Button Grid.Column="3" Content="🔖 Закладки"
+                <Button Grid.Column="5" Content="🔖 Закладки"
                         Style="{StaticResource TopBarButton}" Margin="8,0,0,0"
                         Command="{Binding ShowBookmarksCommand}"/>
 
-                <Button Grid.Column="4" Content="{Binding ThemeButtonText}"
+                <Button Grid.Column="6" Content="{Binding ThemeButtonText}"
                         Style="{StaticResource TopBarButton}" Margin="8,0,0,0"
                         Command="{Binding ToggleThemeCommand}"/>
             </Grid>
@@ -272,6 +282,16 @@
                     <!-- Search Results View -->
                     <views:SearchResultsView
                         Visibility="{Binding PanelMode, Converter={StaticResource EnumToVis}, ConverterParameter=Search}"
+                        DataContext="{Binding}"/>
+
+                    <!-- Video View -->
+                    <views:VideoView
+                        Visibility="{Binding PanelMode, Converter={StaticResource EnumToVis}, ConverterParameter=Video}"
+                        DataContext="{Binding}"/>
+
+                    <!-- About / Authorship View -->
+                    <views:AboutView
+                        Visibility="{Binding PanelMode, Converter={StaticResource EnumToVis}, ConverterParameter=About}"
                         DataContext="{Binding}"/>
                 </Grid>
             </Border>
