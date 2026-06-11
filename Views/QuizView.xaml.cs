@@ -90,15 +90,18 @@ public partial class QuizView : UserControl
 
             if (_vm.IsAnswered)
             {
+                var darkText = new SolidColorBrush(Color.FromRgb(20, 20, 20));
                 if (i == q.CorrectIndex)
                 {
                     rb.Background = new SolidColorBrush(Color.FromRgb(200, 240, 200));
                     rb.BorderBrush = new SolidColorBrush(Color.FromRgb(46, 125, 50));
+                    rb.Foreground = darkText;
                 }
                 else if (i == _vm.SelectedOptionIndex)
                 {
                     rb.Background = new SolidColorBrush(Color.FromRgb(255, 205, 210));
                     rb.BorderBrush = new SolidColorBrush(Color.FromRgb(198, 40, 40));
+                    rb.Foreground = darkText;
                 }
             }
 

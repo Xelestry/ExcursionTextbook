@@ -5,9 +5,7 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="32,24,32,32" MaxWidth="800">
-                <TextBlock Text="Авторство и копирайт" FontSize="24" FontWeight="Bold"
-                           Foreground="{DynamicResource ChapterHeaderForeground}"
-                           Margin="0,0,0,8"/>
+ 
                 <Rectangle Height="1" Fill="{DynamicResource BorderBrush}" Margin="0,0,0,20"/>
 
                 <Border Padding="20,18" Margin="0,0,0,16"
@@ -32,9 +30,7 @@
                     </StackPanel>
                 </Border>
 
-                <TextBlock TextWrapping="Wrap" FontSize="12"
-                           Foreground="{DynamicResource NavForeground}" Opacity="0.7"
-                           Text="© Лалыкин Александр. Все права защищены."/>
+     
             </StackPanel>
         </ScrollViewer>
     </Grid>
